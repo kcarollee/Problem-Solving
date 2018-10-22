@@ -20,6 +20,7 @@ class Board:
 				index += 1
 	
 	def manhattan(self):
+		summ = 0
 		for i in range(3):
 			for j in range(3):
 				if i == 2 and j == 2:
@@ -28,8 +29,9 @@ class Board:
 					for x in range(3):
 						for y in range(3):
 							if self._original[i][j] == self._user[x][y]:
+								summ += abs(x - i) + abs(y - j)
 								print("The shortest distance between %d's current position and where it's supposed to be is %d" % (self._original[i][j], abs(x - i) + abs(y - j)))
-								
+		print(summ)						
 if __name__ == "__main__":
 	array = [int(i) for i in input().split()]
 	Board(array).manhattan()
