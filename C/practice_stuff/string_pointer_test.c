@@ -25,8 +25,6 @@ int main()
     printf("%s", slice(array, 0, 4));
 }
 */
-#include <stdio.h>
-#include <string.h>
 
 void slice(char *a, int start, int last)
 {
