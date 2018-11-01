@@ -3,7 +3,7 @@
 	+ test
 		- test
 		- test
-			* <google.com>
+			* google.com
 			* test
 			* test
 
