@@ -3,9 +3,9 @@
 	+ test
 		- test
 		- test
-			<google.com>
-			1. test
-			2. test
+			* <google.com>
+			* test
+			* test
 
 1. test
 2. test
