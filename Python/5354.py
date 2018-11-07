@@ -4,16 +4,15 @@ class Box:
 
 	def draw(self):
 		for i in range(self._size):
-			for j in range(self._size):
-				if i == 0 or i == self._size - 1:
-					print("#", end = '')
-				else:
-					print("#", end = '')
-					print("J" * (self._size - 2), end = '')
-					print("#", end = '')
-					break
+			if i == 0 or i == self._size - 1:
+				print("#" * self._size, end = '')
+			else:
+				print("#", end = '')
+				print("J" * (self._size - 2), end = '')
+				print("#", end = '')
 			print()
-		print()
+					
+			
 
 if __name__ == "__main__":
 	test_case = int(input())
