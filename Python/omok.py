@@ -74,6 +74,7 @@ class Omok:
 		
 if __name__ == "__main__":
 	game = Omok()
+	game.show_board()
 	while True:
 		if game._turns % 2 == 0:
 			print("White's turn. Enter the coordinates of your move: ")
@@ -82,13 +83,17 @@ if __name__ == "__main__":
 		print("Enter column number: ", end = '')
 		try:
 			column = int(input())
-		except ValueError:
-			print("Coordinate values must be between 0 and 17\n")	
+			if not (1 <= column <= 16):
+				print("Coordinate values must be between 0 and 17\n")
+		except (ValueError, NameError):
+			print("Coordinate values must be an integer between 0 and 17\n")	
 		print("Enter row number: ", end = '')
 		try:
 			row = int(input())
-		except ValueError:
-			print("Coordinate values must be between 0 and 17\n")	
+			if not (1 <= row <= 16):
+				print("Coordinate values must be between 0 and 17\n")
+		except (ValueError, NameError):
+			print("Coordinate values must be an integer between 0 and 17\n")	
 		try:
 
 			if column <= 0 or row <=  0:
