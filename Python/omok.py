@@ -68,9 +68,7 @@ class Omok:
 		if self._board[x - 1][y - 1] == 0:
 			return False
 		else:
-			return True
-			
-			
+			return True			
 		
 if __name__ == "__main__":
 	game = Omok()
@@ -80,13 +78,6 @@ if __name__ == "__main__":
 			print("White's turn. Enter the coordinates of your move: ")
 		else:
 			print("Black's turn. Enter the coordinates of your move: ")
-		print("Enter column number: ", end = '')
-		try:
-			column = int(input())
-			if not (1 <= column <= 16):
-				print("Coordinate values must be between 0 and 17\n")
-		except (ValueError, NameError):
-			print("Coordinate values must be an integer between 0 and 17\n")	
 		print("Enter row number: ", end = '')
 		try:
 			row = int(input())
@@ -94,14 +85,21 @@ if __name__ == "__main__":
 				print("Coordinate values must be between 0 and 17\n")
 		except (ValueError, NameError):
 			print("Coordinate values must be an integer between 0 and 17\n")	
+		print("Enter column number: ", end = '')
+		try:
+			column = int(input())
+			if not (1 <= column <= 16):
+				print("Coordinate values must be between 0 and 17\n")
+		except (ValueError, NameError):
+			print("Coordinate values must be an integer between 0 and 17\n")	
 		try:
 
 			if column <= 0 or row <=  0:
 				print("Coordinate values must be between 0 and 17\n")
-			elif game.is_overlapping(column, row):
+			elif game.is_overlapping(row, column):
 				print("That space is already occupied. Choose another coordinate. \n")
 			else:
-				game.place_marker(column, row)
+				game.place_marker(row, column)
 				game.show_board()
 		except (ValueError, NameError, IndexError):
 			print("Faulty input. Please input your coordinates properly.\n")
