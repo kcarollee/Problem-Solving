@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <cstring>
 using namespace std;
 
 class Omok
@@ -11,7 +12,7 @@ private:
 public:
 	Omok()
 	{
-		memset(board, 0, 4 *256);
+		memset(board, 0, 4 * 256);
 		turns = 0;
 		winflag = 0;
 	}
@@ -23,17 +24,17 @@ public:
 	void play()
 	{
 		int row, column;
-		if (turns == 0) {cout<<"White's turn. Enter the coordinates of your move: "<<endl;}
-		else {cout<<"Black's turn. Enter the coordinates of your move: "<<endl;}
-		cout<<"Enter row number: ";
-		cin>>row;
-		if (!(1 <= row && row <= 16)) {cout<<"Coordinate values must be between 0 and 17\n";}
-		cout<<"Enter column number: ";
-		cin>>column;
-		if (!(1 <= column && column <= 16)) {cout<<"Coordinate values must be between 0 and 17\n";}
-		if (column <= 0 || row <= 0){cout<<"Coordinate values must be between 0 and 17\n";}
-		else if (is_overlapping(row, column)) {cout<<"That space is already occupied. Choose another coordinate. \n";}
-		else{
+		if (turns % 2 == 0) { cout << "White's turn. Enter the coordinates of your move: " << endl; }
+		else { cout << "Black's turn. Enter the coordinates of your move: " << endl; }
+		cout << "Enter row number: ";
+		cin >> row;
+		if (!(1 <= row && row <= 16)) { cout << "Coordinate values must be between 0 and 17\n"; }
+		cout << "Enter column number: ";
+		cin >> column;
+		if (!(1 <= column && column <= 16)) { cout << "Coordinate values must be between 0 and 17\n"; }
+		if (column <= 0 || row <= 0) { cout << "Coordinate values must be between 0 and 17\n"; }
+		else if (is_overlapping(row, column)) { cout << "That space is already occupied. Choose another coordinate. \n"; }
+		else {
 			place_marker(row, column);
 			show_board();
 		}
@@ -46,7 +47,7 @@ void Omok::place_marker(int xpos, int ypos)
 		board[xpos - 1][ypos - 1] = 1;
 		turns++;
 		if (check()) {
-			cout << "White is the winner!";
+			cout << "White is the winner!\n";
 			winflag += 1;
 
 		}
@@ -55,7 +56,7 @@ void Omok::place_marker(int xpos, int ypos)
 		board[xpos - 1][ypos - 1] = 2;
 		turns++;
 		if (check()) {
-			cout << "Black is the winner!";
+			cout << "Black is the winner!\n";
 			winflag += 1;
 
 		}
@@ -133,7 +134,7 @@ int main()
 {
 	Omok game;
 	game.show_board();
-	while(true){
+	while (true) {
 		game.play();
 		if (game.win() == 1)
 			break;
