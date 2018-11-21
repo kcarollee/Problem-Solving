@@ -39,28 +39,28 @@ class Omok:
 			for j in range(12):
 				if self._board[i][j] != 0:
 					if self._board[i][j] == self._board[i][j + 1] and self._board[i][j + 1] == self._board[i][j + 2] and\
-						self._board[i][j + 2] == self._board[i][j + 3] and self._board[i][j + 4]:
+						self._board[i][j + 2] == self._board[i][j + 3] and self._board[i][j + 3] == self._board[i][j + 4]:
 							return True
 		#vertical check
 		for i in range(12):
 			for j in range(16):
 				if self._board[i][j] != 0:
 					if self._board[i][j] == self._board[i + 1][j] and self._board[i + 1][j] == self._board[i + 2][j] and\
-						self._board[i + 2][j] == self._board[i + 3][j] and self._board[i + 4][j]:
+						self._board[i + 2][j] == self._board[i + 3][j] and self._board[i + 3][j] == self._board[i + 4][j]:
 							return True
 		#diagonal check no.1
 		for i in range(12):
 			for j in range(12):
 				if self._board[i][j] != 0:
 					if self._board[i][j] == self._board[i + 1][j + 1] and self._board[i + 1][j + 1] == self._board[i + 2][j + 2] and\
-						self._board[i + 2][j + 2] == self._board[i + 3][j + 3] and self._board[i + 4][j + 4]:
+						self._board[i + 2][j + 2] == self._board[i + 3][j + 3] and self._board[i + 3][j + 3] == self._board[i + 4][j + 4]:
 							return True
 		#diagonal check no.2
 		for i in range(12):
 			for j in range(4, 15):
 				if self._board[i][j] != 0:
 					if self._board[i][j] == self._board[i + 1][j - 1] and self._board[i + 1][j - 1] == self._board[i + 2][j - 2] and\
-						self._board[i + 2][j - 2] == self._board[i + 3][j - 3] and self._board[i + 4][j - 4]:
+						self._board[i + 2][j - 2] == self._board[i + 3][j - 3] and  self._board[i + 3][j - 3] == self._board[i + 4][j - 4]:
 							return True
 		return False
 		
@@ -69,12 +69,9 @@ class Omok:
 			return False
 		else:
 			return True			
-		
-if __name__ == "__main__":
-	game = Omok()
-	game.show_board()
-	while True:
-		if game._turns % 2 == 0:
+	
+	def play(self):
+		if self._turns % 2 == 0:
 			print("White's turn. Enter the coordinates of your move: ")
 		else:
 			print("Black's turn. Enter the coordinates of your move: ")
@@ -96,13 +93,20 @@ if __name__ == "__main__":
 
 			if column <= 0 or row <=  0:
 				print("Coordinate values must be between 0 and 17\n")
-			elif game.is_overlapping(row, column):
+			elif self.is_overlapping(row, column):
 				print("That space is already occupied. Choose another coordinate. \n")
 			else:
-				game.place_marker(row, column)
-				game.show_board()
+				self.place_marker(row, column)
+				self.show_board()
 		except (ValueError, NameError, IndexError):
 			print("Faulty input. Please input your coordinates properly.\n")
+		
+		
+if __name__ == "__main__":
+	game = Omok()
+	game.show_board()
+	while True:
+		game.play()
 		if game._winflag == 1:
 			break
 	
