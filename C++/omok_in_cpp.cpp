@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <cstdlib>
 using namespace std;
 
 class Omok
@@ -10,11 +11,10 @@ private:
 	int turns;
 	int winflag;
 public:
-	Omok()
+	Omok() : turns(0), winflag(0)
 	{
 		memset(board, 0, 4 * 256);
-		turns = 0;
-		winflag = 0;
+		cout<<"Test"<<endl;
 	}
 	void place_marker(int xpos, int ypos);
 	bool check();
