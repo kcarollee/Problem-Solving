@@ -24,7 +24,7 @@ void place_marker(int *arr, int x_pos, int y_pos)
 bool check()
 {
 
-}
+}s
 
 bool is_overlapping()
 {
