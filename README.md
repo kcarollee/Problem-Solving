@@ -1,1 +1,1 @@
-**SOURCE CODES FOR PROBLEMS SOLVED ON acmicpc.net**
+**Just a beginner.**
