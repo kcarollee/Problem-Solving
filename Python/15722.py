@@ -53,6 +53,7 @@ class Snail:
 			print(self.pos.x, self.pos.y)
 
 if __name__ == "__main__":
+	
 	sec = int(input())
 	Snail(sec).ViewPos()
 			
