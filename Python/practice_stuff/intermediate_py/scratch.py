@@ -1,13 +1,14 @@
-class First:
-	def __init__(self, a, b):
+class Test:
+	def __init__(self, a, b, c):
 		self.a = a
-		self.b = b
+		self._b = b
+		self.__c = c
 	
-	def UnprotectedFunc(self):
-		print(self.a + self.b)
-		
-	
-	def _ProtectedFunc(self):
-		print(self.a + self.b)
+	def show(self):
+		print(self.a)
+		print(self._b)
+		print(self.__c)
 
-
+t = Test(1, 2, 3)
+print(dir(t))
+t.show()
