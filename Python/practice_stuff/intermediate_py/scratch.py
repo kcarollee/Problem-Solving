@@ -1,14 +1,13 @@
-class Test:
-	def __init__(self, a, b, c):
-		self.a = a
-		self._b = b
-		self.__c = c
-	
-	def show(self):
-		print(self.a)
-		print(self._b)
-		print(self.__c)
+import math
 
-t = Test(1, 2, 3)
-print(dir(t))
-t.show()
+class Matrix:
+	
+	def __init__(self, *args):
+		self.arr = args
+		self.sq = math.sqrt(len(self.arr))
+		self.matrix = [[0] * self.sq for i in range(self.sq)]
+		
+	def MakeMatrix(self):
+		index = 0
+		for i in range(self.sq):
+			for j in range

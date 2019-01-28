@@ -1,5 +1,4 @@
-from scratch import *
+from scratch import test, _test1
 
-func()
-
-_private_func()
+test()
+_test1()
