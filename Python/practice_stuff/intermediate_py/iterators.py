@@ -17,6 +17,10 @@ class Test:
     def __iter__(self):
         return self
 
+def gen(first, inc, len):
+    for i in range(len):
+        yield first
+        first += inc
 
 if __name__ == '__main__':
     t = Test(2, 2)
@@ -25,3 +29,10 @@ if __name__ == '__main__':
     print(iter(t))
     i = iter(t)
     print(next(i))
+    myGen = gen(0, 2, 10)
+    print(next(myGen))
+    print(next(myGen))
+    print(next(myGen))
+    print(next(myGen))
+    
+
