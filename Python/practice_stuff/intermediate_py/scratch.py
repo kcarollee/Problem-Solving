@@ -29,3 +29,4 @@ class Second(Base):
 p = Second(4, 2)
 p.print_progression(20)
 
+
