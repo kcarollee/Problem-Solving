@@ -1,4 +1,7 @@
 *.o
 *.exe
 *.out
-
+*.class
+*.iml
+\.idea
+\src
